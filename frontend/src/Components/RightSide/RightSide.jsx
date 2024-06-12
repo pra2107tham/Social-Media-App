@@ -3,6 +3,7 @@ import "./RightSide.css"
 import FollowersCard from '../FollowersCard/FollowersCard'
 import TrendCard from '../TrendCard/TrendCard'
 import ShareModal from '../ShareModal/ShareModal'
+import { useState } from 'react'
 
 
 const RightSide = () => {

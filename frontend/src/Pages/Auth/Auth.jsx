@@ -7,8 +7,7 @@ import axios from "axios";
 const Auth = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate;
-
+  const navigate = useNavigate()
   useEffect(()=>{
     if(localStorage.getItem("userID")){
       localStorage.removeItem("userID")
@@ -23,14 +22,15 @@ const Auth = () => {
     }
     console.log("FormData",formData)
     try {
-      const response = await axios.post("/auth/login",formData)
+      const response = await axios.post("/api/auth/login",formData)
       console.log("Response",response)
       if(response.status === 200){
-        localStorage.setItem("userID",response.data._id)
-        localStorage.setItem("image",response.data.img)
-        localStorage.setItem("followersList",response.followersList)
-        localStorage.setItem("name",response.data.firstName+" "+response.data.lastName)
+        localStorage.setItem("userID",response.data.data._id)
+        localStorage.setItem("image",response.data.data.img)
+        localStorage.setItem("followersList",response.data.followersList)
+        localStorage.setItem("name",response.data.data.firstName+" "+response.data.data.lastName)
         navigate("/home")
+        console.log('User signed up successfully', response.data)
       }else if(response.status === 401){
         alert("Invalid Username or Password")
       }
@@ -76,6 +76,7 @@ const Auth = () => {
 };
 
 const SignUp = () => {
+  const navigate = useNavigate;
   useEffect(() => {
     if (localStorage.getItem("userID")) {
       localStorage.removeItem("userID");

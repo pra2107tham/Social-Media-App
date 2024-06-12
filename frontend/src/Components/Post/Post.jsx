@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Comment from "../../assets/comment.png";
 import Heart from "../../assets/like.png";
 import Share from "../../assets/share.png";
-import NotLike from "../../assets/notLike.png";
+import NotLike from "../../assets/notlike.png";
 import "./Post.css";
 
 const Post = () => {

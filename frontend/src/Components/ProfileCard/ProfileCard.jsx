@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import Cover from "../../assets/cover.jpg"
 import Profile from "../../assets/profileImg.jpg"
 import "./ProfileCard.css"
+import axios from 'axios'
+import { useState } from 'react'
 
 const ProfileCard = () => {
   const [profileData,setProfileData] = useState('')
@@ -18,10 +20,12 @@ const ProfileCard = () => {
       console.log("Error in fetching Profile Data", response.data.error)
     }
 
-    useEffect( () => {
-      fetchInfo()
-    },[])
-  }
+    }
+      useEffect( () => {
+        fetchInfo()
+      },[])
+      
+  const ProfilePage = true;
   return (
     <div className="ProfileCard">
       <div className="ProfileImages">

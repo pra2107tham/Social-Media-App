@@ -4,6 +4,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LogoutIcon from "@mui/icons-material/Logout";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoCard from '../InfoCard/InfoCard';
+import { Link } from 'react-router-dom';
 
 const ProfileLeft = () => {
   return (
