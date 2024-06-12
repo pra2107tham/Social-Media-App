@@ -53,7 +53,7 @@ const PostShare = () => {
                 const formData = new FormData();
                 formData.append("images", image.base64String);
                 formData.append("name", "Pratham");
-                formData.append("userID", localStorage.getItem("userId"));
+                formData.append("userID", localStorage.getItem("userID"));
                 formData.append("desc", desc);
                 formData.append("likes", 0);
                 formData.append("liked", false);
@@ -75,7 +75,7 @@ const PostShare = () => {
                 const formData = new FormData();
                 formData.append("images", video.base64String);
                 formData.append("name", "Pratham");
-                formData.append("userID", localStorage.getItem("userId"));
+                formData.append("userID", localStorage.getItem("userID"));
                 formData.append("desc", desc);
                 formData.append("likes", 0);
                 formData.append("liked", false);
