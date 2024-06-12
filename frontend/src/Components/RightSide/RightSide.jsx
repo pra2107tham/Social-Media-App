@@ -1,8 +1,23 @@
 import React from 'react'
+import "./RightSide.css"
+import FollowersCard from '../FollowersCard/FollowersCard'
+import TrendCard from '../TrendCard/TrendCard'
+import ShareModal from '../ShareModal/ShareModal'
+
 
 const RightSide = () => {
+
+  const [modalOpened, setModalOpened] = useState(false)
+
   return (
-    <div>RightSide</div>
+    <div className="RightSide">
+      <FollowersCard />
+      <button className="button r-button" onClick={() => setModalOpened(true)}>
+        Share
+      </button>
+      <ShareModal modalOpened={modalOpened} setModalOpened={setModalOpened} />
+      <TrendCard />
+    </div>
   )
 }
 
