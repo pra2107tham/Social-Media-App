@@ -4,6 +4,7 @@ import Comment from "../../assets/comment.png"
 import Share from "../../assets/share.png"
 import Heart from "../../assets/like.png"
 import NotLike from "../../assets/notlike.png"
+import axios from "axios"
 
 const Posts = () => {
     const [liked,setLiked] = useState('')
@@ -11,7 +12,7 @@ const Posts = () => {
     
     const fetchPosts = async () => {
         const response = await axios.get('/posts/fetchAllPosts')
-        setPosts(response.json())
+        setPosts(response)
     }
 
     useEffect(() => {

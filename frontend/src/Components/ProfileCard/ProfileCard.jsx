@@ -6,20 +6,21 @@ import axios from 'axios'
 import { useState } from 'react'
 
 const ProfileCard = () => {
-  const [profileData,setProfileData] = useState('')
+  const [profileData,setProfileData] = useState({})
 
   const fetchInfo = async () => {
     const formData = {
       userID : localStorage.getItem('userID')
     }
-    const response = await axios.post('/profile/data')
+    const response = await axios.post('/api/profile/data',formData)
+    console.log(response)
     console.log("Fetching Profile Data",response.data)
-    if(response.data.status === 200){
-      setProfileData(response.data.data)
+    if(response.status === 200){
+      setProfileData(response.data)
     }else{
-      console.log("Error in fetching Profile Data", response.data.error)
+      console.log("Error in fetching Profile Data", response.error)
     }
-
+    console.log("Profile Data",profileData)
     }
       useEffect( () => {
         fetchInfo()

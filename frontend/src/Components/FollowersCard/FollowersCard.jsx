@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import './FollowersCard.css'
+import axios from "axios"
 
 const FollowersCard = () => {
     const [users,setUsers] = useState([]);
     const [unfollow,setUnfollow] = useState([]);
 
     const fetchUsers = async () => {
-        const response = await axios.get('/users/fetchUsers');
-        console.log("all users", response.json());
-        setUsers(response.json());
+        const response = await axios.get('/api/fetchUsers');
+        console.log("all users", response);
+        setUsers(response);
     }
     useEffect(()=> {
         fetchUsers();
@@ -21,7 +22,7 @@ const FollowersCard = () => {
             followerID: followerID._id
         }
 
-        const response = await axios.post('/profile/follow',formData);
+        const response = await axios.post('/api/profile/follow',formData);
         const userData = response.json();
         setUnfollow(userData.followersList);
         localStorage.setItem('followersList',userData.followersList);
